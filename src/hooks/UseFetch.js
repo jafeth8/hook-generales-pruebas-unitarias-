@@ -24,7 +24,10 @@ export const UseFetch = (url) => {
                     .then(resp=>resp.json())
                     .then((data) =>{
                     setState({data,loading:false,error:null})
-                });
+                })
+                .catch((err) =>{
+                    setState({data:null,loading:false,error:'no se pudo cargar la informacion'})
+                })
             }else{
                 console.log("no se puede cambiar el estado de un componente no montado")
             }            
